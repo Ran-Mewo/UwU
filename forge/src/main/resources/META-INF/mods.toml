@@ -1,0 +1,21 @@
+modLoader = "javafml"
+loaderVersion = "[0,)"
+#issueTrackerURL = ""
+license = "${license}"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "${displayName}"
+authors = "Me!"
+description = '''
+This is an example description! Tell everyone what your mod is about!
+'''
+logoFile = "assets/${id}/icon.png"
+
+[[dependencies.${id}]]
+modId = "forge"
+mandatory = true
+versionRange = "[0.0.0,)"
+ordering = "NONE"
+side = "BOTH"
