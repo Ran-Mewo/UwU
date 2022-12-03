@@ -18,9 +18,10 @@ public class LocalPlayerMixin {
     @ModifyVariable(method = "chat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     #endif
     private String onSendChatMessage(String message) {
-        if (UwUConfig.exemptions.uwuifyCertainCommands && message.startsWith("/")) {
-            if (!UwUConfig.exemptions.uwuifyCommands.isEmpty()) {
-                for (String regexCommands : UwUConfig.exemptions.uwuifyCommands) {
+        UwUConfig config = UwUConfig.getInstance();
+        if (config.exemptions.uwuifyCertainCommands && message.startsWith("/")) {
+            if (!config.exemptions.uwuifyCommands.isEmpty()) {
+                for (String regexCommands : config.exemptions.uwuifyCommands) {
                     try {
                         if (Pattern.compile(regexCommands).matcher(message).find()) {
                             String toBeUwuified;
@@ -33,6 +34,6 @@ public class LocalPlayerMixin {
             }
         }
         if (message.startsWith("/")) return message; // ignore commands
-        return UwUConfig.uwuifyOutgoing ? Uwuifier.uwu(message) : message;
+        return config.uwuifyOutgoing ? Uwuifier.uwu(message) : message;
     }
 }

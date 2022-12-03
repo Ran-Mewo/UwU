@@ -23,13 +23,13 @@ public abstract class SignBlockEntityMixin {
 
        @Inject(method = "getMessage", at = @At("HEAD"), cancellable = true)
        private void onGetTextOnRow(int row, boolean filtered, CallbackInfoReturnable<Component> cir) {
-           cir.setReturnValue(UwUConfig.uwuifySigns ? uwufiedText(this.getMessages(filtered)[row]) : this.getMessages(filtered)[row]);
+           cir.setReturnValue(UwUConfig.getInstance().uwuifySigns ? uwufiedText(this.getMessages(filtered)[row]) : this.getMessages(filtered)[row]);
        }
    #else
     @Shadow @Final private Component[] messages;
     @Inject(method = "getMessage", at = @At("HEAD"), cancellable = true)
     private void onGetTextOnRow(int row, CallbackInfoReturnable<Component> cir) {
-        cir.setReturnValue(UwUConfig.uwuifySigns ? uwufiedText(this.messages[row]) : this.messages[row]);
+        cir.setReturnValue(UwUConfig.getInstance().uwuifySigns ? uwufiedText(this.messages[row]) : this.messages[row]);
     }
     #endif
 

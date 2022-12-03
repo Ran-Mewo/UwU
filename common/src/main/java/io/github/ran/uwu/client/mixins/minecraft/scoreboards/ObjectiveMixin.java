@@ -21,7 +21,7 @@ public class ObjectiveMixin {
 
     @Inject(method = "getDisplayName", at = @At("HEAD"), cancellable = true)
     private void getDisplayName(CallbackInfoReturnable<Component> cir) {
-        cir.setReturnValue(UwUConfig.uwuifyMinecraft ? uwufiedText(this.displayName) : this.displayName);
+        cir.setReturnValue(UwUConfig.getInstance().uwuifyMinecraft ? uwufiedText(this.displayName) : this.displayName);
     }
 
     @Unique

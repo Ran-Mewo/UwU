@@ -18,7 +18,7 @@ public class ClientLanguageMixin {
     @ModifyVariable(method = "<init>", at = @At("HEAD"), argsOnly = true, ordinal = 0)
     private static Map<String, String> translations(Map<String, String> translations) {
         UwUConfig.init();
-        if (UwUConfig.uwuifyMinecraft) {
+        if (UwUConfig.getInstance().uwuifyMinecraft) {
             uwuifiedTranslations = new HashMap<>();
             translations.forEach((key, value) -> uwuifiedTranslations.put(key, Uwuifier.uwu(value)));
             if (!uwuifiedTranslations.isEmpty()) {

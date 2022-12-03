@@ -16,6 +16,6 @@ public class ScoreMixin {
 
     @Inject(method = "getOwner", at = @At("HEAD"), cancellable = true)
     private void getDisplayName(CallbackInfoReturnable<String> cir) {
-        cir.setReturnValue(UwUConfig.uwuifyMinecraft ? Uwuifier.uwuWithoutCuteFace(this.owner) : this.owner);
+        cir.setReturnValue(UwUConfig.getInstance().uwuifyMinecraft ? Uwuifier.uwuWithoutCuteFace(this.owner) : this.owner);
     }
 }

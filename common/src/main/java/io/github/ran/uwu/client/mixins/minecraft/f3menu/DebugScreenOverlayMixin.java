@@ -15,7 +15,7 @@ import java.util.List;
 public class DebugScreenOverlayMixin {
     @Inject(method = "getSystemInformation", at = @At("RETURN"), cancellable = true)
     private void uwuifyRightText(CallbackInfoReturnable<List<String>> cir) {
-        if (UwUConfig.uwuifyMinecraft) {
+        if (UwUConfig.getInstance().uwuifyMinecraft) {
             List<String> uwuifiedMessages = new ArrayList<>();
             cir.getReturnValue().forEach(message -> uwuifiedMessages.add(Uwuifier.uwuWithoutCuteFace(message)));
             cir.setReturnValue(uwuifiedMessages);
@@ -24,7 +24,7 @@ public class DebugScreenOverlayMixin {
 
     @Inject(method = "getGameInformation", at = @At("RETURN"), cancellable = true)
     private void uwuifyLeftText(CallbackInfoReturnable<List<String>> cir) {
-        if (UwUConfig.uwuifyMinecraft) {
+        if (UwUConfig.getInstance().uwuifyMinecraft) {
             List<String> uwuifiedMessages = new ArrayList<>();
             cir.getReturnValue().forEach(message -> uwuifiedMessages.add(Uwuifier.uwuWithoutCuteFace(message)));
             cir.setReturnValue(uwuifiedMessages);

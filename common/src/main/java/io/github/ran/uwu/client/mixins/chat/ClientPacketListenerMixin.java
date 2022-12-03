@@ -24,7 +24,7 @@ public class ClientPacketListenerMixin {
     #if PRE_MC_1_19_2
     @ModifyVariable(method = "handleChat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private ClientboundChatPacket onGameMessage(ClientboundChatPacket packet) {
-        if (UwUConfig.uwuifyIncoming) {
+        if (UwUConfig.getInstance().uwuifyIncoming) {
             if (packet.getType() == ChatType.CHAT) {
                 packet = new ClientboundChatPacket(uwufiedText(packet.getMessage()), packet.getType(), packet.getSender());
             }
@@ -40,7 +40,7 @@ public class ClientPacketListenerMixin {
 
     @ModifyVariable(method = "handleSystemChat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private ClientboundSystemChatPacket onGameMessage(ClientboundSystemChatPacket packet) {
-        if (UwUConfig.uwuifyIncoming) {
+        if (UwUConfig.getInstance().uwuifyIncoming) {
             try {
                 packet = new ClientboundSystemChatPacket(uwufiedText(packet.content()), packet.overlay());
             } catch (Exception ignored) { }
@@ -50,7 +50,7 @@ public class ClientPacketListenerMixin {
 
     @ModifyVariable(method = "handlePlayerChat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private ClientboundPlayerChatPacket onGameMessage(ClientboundPlayerChatPacket packet) {
-        if (UwUConfig.uwuifyIncoming) {
+        if (UwUConfig.getInstance().uwuifyIncoming) {
             try {
                 Optional<Component> optional = packet.message().unsignedContent();
                 if (optional.isPresent()) optional = Optional.of(uwufiedText(optional.get()));

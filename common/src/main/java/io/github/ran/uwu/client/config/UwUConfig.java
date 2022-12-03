@@ -1,5 +1,6 @@
 package io.github.ran.uwu.client.config;
 
+import io.github.ran.uwu.client.UwUMod;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.ConfigHolder;
@@ -15,33 +16,34 @@ import java.util.List;
 @Config.Gui.Background("minecraft:textures/block/pink_concrete.png")
 public class UwUConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
-    public static boolean uwuifyOutgoing = true;
+    public boolean uwuifyOutgoing = true;
 
     @ConfigEntry.Gui.Tooltip
-    public static boolean uwuifyIncoming = true;
+    public boolean uwuifyIncoming = true;
 
     @ConfigEntry.Gui.Tooltip
-    public static boolean uwuifyMinecraft = true;
+    public boolean uwuifyMinecraft = true;
     @ConfigEntry.Gui.Excluded
-    private static boolean uwuifyMinecraft_Internal = true;
+    private boolean uwuifyMinecraft_Internal = true;
 
     @ConfigEntry.Gui.Tooltip
-    public static boolean uwuifySigns = false;
+    public boolean uwuifySigns = false;
 
     @ConfigEntry.Gui.Tooltip
-    public static boolean uwuifyFontRenderer = false;
+    public boolean uwuifyFontRenderer = false;
 
     @ConfigEntry.Gui.CollapsibleObject
-    public static Exemptions exemptions = new Exemptions();
+    public Exemptions exemptions = new Exemptions();
     public static class Exemptions {
         @ConfigEntry.Gui.Tooltip
-        public static boolean uwuifyCertainCommands = true;
+        public boolean uwuifyCertainCommands = true;
 
         @ConfigEntry.Gui.Tooltip
-        public static List<String> uwuifyCommands = List.of("(\\/msg [0-9a-zA-Z_]{1,16})", "/me", "/say");
+        public List<String> uwuifyCommands = List.of("(\\/msg [0-9a-zA-Z_]{1,16})", "/me", "/say");
     }
 
     public static void init() {
+        if (UwUMod.isLoaded) return;
         AutoConfig.register(UwUConfig.class, Toml4jConfigSerializer::new);
 
         getConfigHolder().registerSaveListener((manager, data) -> {
@@ -50,9 +52,11 @@ public class UwUConfig implements ConfigData {
         });
 
         getConfigHolder().registerLoadListener((manager, data) -> {
-            uwuifyMinecraft_Internal = uwuifyMinecraft;
+            UwUConfig config = getInstance();
+            config.uwuifyMinecraft_Internal = config.uwuifyMinecraft;
             return InteractionResult.SUCCESS;
         });
+        UwUMod.isLoaded = true;
     }
 
     public static UwUConfig getInstance() {
