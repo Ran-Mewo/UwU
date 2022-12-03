@@ -17,6 +17,7 @@ configurations {
 
 repositories {
     maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://repo.essential.gg/repository/maven-public" }
 }
 
 dependencies {

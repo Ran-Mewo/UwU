@@ -1,0 +1,25 @@
+{
+  "category.UwU": "UwU",
+  "text.autoconfig.UwU.title": "UwU",
+
+  "text.autoconfig.UwU.option.uwuifyOutgoing": "Uwuify Outgoing Messages",
+  "text.autoconfig.UwU.option.uwuifyOutgoing.@Tooltip": "i-it uwuifies youw messages! >_<",
+
+  "text.autoconfig.UwU.option.uwuifyIncoming": "Uwuify Incoming Messages",
+  "text.autoconfig.UwU.option.uwuifyIncoming.@Tooltip": "i-it uwuifies othew pwayew messages!",
+
+  "text.autoconfig.UwU.option.uwuifyMinecraft": "Uwuify Minecraft",
+  "text.autoconfig.UwU.option.uwuifyMinecraft.@Tooltip": "i-it uwuifies the minyecwaft cwient! >_<",
+
+  "text.autoconfig.UwU.option.uwuifySigns": "Uwuify Signs",
+  "text.autoconfig.UwU.option.uwuifySigns.@Tooltip": "i-it uwuifies the signs!",
+
+  "text.autoconfig.UwU.option.uwuifyFontRenderer": "Uwuify Font Renderer",
+  "text.autoconfig.UwU.option.uwuifyFontRenderer.@Tooltip": "i-it uwuifies the font renderer! >_<",
+
+  "text.autoconfig.UwU.option.exemptions": "Exempt Commands Using Regex",
+  "text.autoconfig.UwU.option.exemptions.uwuifyCertainCommands": "Exempt Commands Using Regex",
+  "text.autoconfig.UwU.option.exemptions.uwuifyCertainCommands.@Tooltip": "you can use wegex to nyot uwui-ify cewtain pawts of a command!",
+  "text.autoconfig.UwU.option.exemptions.uwuifyCommands": "Regex Exemptions",
+  "text.autoconfig.UwU.option.exemptions.uwuifyCommands.@Tooltip": "thi-is uses java wegex to nyot uwui-ify cewtain pawts of a command!"
+}

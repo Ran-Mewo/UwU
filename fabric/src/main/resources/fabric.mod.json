@@ -3,9 +3,9 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${displayName}",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Hewwo >_<",
   "authors": [
-    "Me!"
+    "Ran"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -13,18 +13,18 @@
   },
   "license": "${license}",
   "icon": "assets/${id}/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "main": [
-      "net.examplemod.fabric.ExampleModFabric"
+      "io.github.ran.uwu.client.fabric.UwUModFabric"
     ],
-    "preLaunch": [
-      "net.examplemod.fabric.PreLaunchSetup"
+    "modmenu": [
+      "io.github.ran.uwu.client.fabric.config.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "examplemod.mixins.json",
-    "examplemod-common.mixins.json"
+    "uwu.mixins.json",
+    "uwu-common.mixins.json"
   ],
   "depends": {
     "fabric": "*",

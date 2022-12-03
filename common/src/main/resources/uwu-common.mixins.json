@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "io.github.ran.uwu.client.mixins",
+  "compatibilityLevel": "JAVA_${javaVersion}",
+  "client": [
+    "chat.ClientPacketListenerMixin",
+    "fontRenderer.FontMixin",
+    "minecraft.f3menu.DebugScreenOverlayMixin",
+    "minecraft.language.ClientLanguageMixin",
+    "minecraft.scoreboards.ObjectiveMixin",
+    "minecraft.scoreboards.ScoreMixin",
+    "chat.LocalPlayerMixin",
+    "signs.SignBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

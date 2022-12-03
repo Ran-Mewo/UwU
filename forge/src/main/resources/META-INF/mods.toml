@@ -7,11 +7,11 @@ license = "${license}"
 modId = "${id}"
 version = "${version}"
 displayName = "${displayName}"
-authors = "Me!"
+authors = "Ran"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Hewwo >_<
 '''
-logoFile = "assets/${id}/icon.png"
+logoFile = "icon.png"
 
 [[dependencies.${id}]]
 modId = "forge"
