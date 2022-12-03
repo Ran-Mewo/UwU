@@ -11,8 +11,6 @@ import net.minecraft.world.InteractionResult;
 
 import java.util.List;
 
-import static io.github.ran.uwu.client.UwUMod.isLoaded;
-
 @Config(name = "UwU")
 @Config.Gui.Background("minecraft:textures/block/pink_concrete.png")
 public class UwUConfig implements ConfigData {

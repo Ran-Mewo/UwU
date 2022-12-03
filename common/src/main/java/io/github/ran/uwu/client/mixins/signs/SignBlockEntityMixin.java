@@ -4,6 +4,7 @@ import io.github.ran.uwu.client.Uwuifier;
 import io.github.ran.uwu.client.config.UwUConfig;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -16,13 +17,21 @@ import net.minecraft.network.chat.TextComponent;
 
 @Mixin(SignBlockEntity.class)
 public abstract class SignBlockEntityMixin {
-    @Shadow
-    protected abstract Component[] getMessages(boolean filtered);
+    #if POST_MC_1_16_5
+       @Shadow
+       protected abstract Component[] getMessages(boolean filtered);
 
+       @Inject(method = "getMessage", at = @At("HEAD"), cancellable = true)
+       private void onGetTextOnRow(int row, boolean filtered, CallbackInfoReturnable<Component> cir) {
+           cir.setReturnValue(UwUConfig.uwuifySigns ? uwufiedText(this.getMessages(filtered)[row]) : this.getMessages(filtered)[row]);
+       }
+   #else
+    @Shadow @Final private Component[] messages;
     @Inject(method = "getMessage", at = @At("HEAD"), cancellable = true)
-    private void onGetTextOnRow(int row, boolean filtered, CallbackInfoReturnable<Component> cir) {
-        cir.setReturnValue(UwUConfig.uwuifySigns ? uwufiedText(this.getMessages(filtered)[row]) : this.getMessages(filtered)[row]);
+    private void onGetTextOnRow(int row, CallbackInfoReturnable<Component> cir) {
+        cir.setReturnValue(UwUConfig.uwuifySigns ? uwufiedText(this.messages[row]) : this.messages[row]);
     }
+    #endif
 
     @Unique
     private Component uwufiedText(Component text) {
