@@ -29,9 +29,9 @@ dependencies {
         addJar "dev.architectury:architectury-forge:${rootProject.architectury_version}"
     }
 
-    modImplementation "me.shedaniel.cloth:cloth-config-forge:${rootProject.cloth_config_version}"
+    addJar "me.shedaniel.cloth:cloth-config-forge:${rootProject.cloth_config_version}"
 
-    common "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+//    common "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
@@ -42,10 +42,10 @@ shadowJar {
 
     configurations = [project.configurations.shadowCommon, project.configurations.shade]
 
-    if (minecraft_version == "1.16.5") {
-        // This is because 1.18.1- doesn't support JarJar
-        relocate "com.llamalad7.mixinextras", "${rootProject.mod_id}.libraries.com.llamalad7.mixinextras"
-    }
+//    if (minecraft_version == "1.16.5") {
+//        // This is because 1.18.1- doesn't support JarJar
+//        relocate "com.llamalad7.mixinextras", "${rootProject.mod_id}.libraries.com.llamalad7.mixinextras"
+//    }
 
     if (minecraft_version == "1.16.5") {
         exclude "META-INF/accesstransformer.cfg"

@@ -59,7 +59,7 @@ subprojects { p ->
 
         if (minecraft_version == "1.16.5") { // This is because 1.18.1- doesn't support JarJar
             if (p == project(":forge")) {
-                shade.extendsFrom addJar
+//                shade.extendsFrom addJar
             } else {
                 if (p != project(":common")) {
                     include.extendsFrom addJar
@@ -84,8 +84,8 @@ subprojects { p ->
         annotationProcessor "systems.manifold:manifold-preprocessor:${rootProject.manifold_version}"
 
         // https://github.com/LlamaLad7/MixinExtras/wiki
-        addJar "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
-        annotationProcessor("com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}")
+//        addJar "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+//        annotationProcessor("com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}")
         
         
         
