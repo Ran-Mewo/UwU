@@ -3,13 +3,14 @@
   "package": "io.github.ran.uwu.client.mixins",
   "compatibilityLevel": "JAVA_${javaVersion}",
   "client": [
+    "chat.ChatListenerMixin",
     "chat.ClientPacketListenerMixin",
+    "chat.LocalPlayerMixin",
     "fontRenderer.FontMixin",
     "minecraft.f3menu.DebugScreenOverlayMixin",
     "minecraft.language.ClientLanguageMixin",
     "minecraft.scoreboards.ObjectiveMixin",
     "minecraft.scoreboards.ScoreMixin",
-    "chat.LocalPlayerMixin",
     "signs.SignBlockEntityMixin"
   ],
   "injectors": {

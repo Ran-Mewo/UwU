@@ -8,7 +8,7 @@ Uwuification is the next generation of block based computing and you can be a pa
 Use your imagination to create anything you want\
 Accept no limits and create the impossible.
 
-According to the statistics, 100% of people who have used this tool have been **_satisfied_** 💦
+According to the statistics, 100% of people who have used this tool have been **_satisfied_** 
 
 But don't take my word for it, try it out for yourself.\
 Download the mod now over on [Modrinth](https://modrinth.com/mod/uwuifier)

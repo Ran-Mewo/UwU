@@ -12,20 +12,19 @@ import java.util.regex.Pattern;
 
 @Mixin(LocalPlayer.class)
 public class LocalPlayerMixin {
-    #if POST_MC_1_18_2
-    @ModifyVariable(method = "sendChat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
-    #else
+    #if PRE_MC_1_19_3
     @ModifyVariable(method = "chat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
-    #endif
     private String onSendChatMessage(String message) {
         UwUConfig config = UwUConfig.getInstance();
         if (config.exemptions.uwuifyCertainCommands && message.startsWith("/")) {
+            String command = message.substring(1);
+            String prefix = message.substring(0, 1);
             if (!config.exemptions.uwuifyCommands.isEmpty()) {
                 for (String regexCommands : config.exemptions.uwuifyCommands) {
                     try {
-                        if (Pattern.compile(regexCommands).matcher(message).find()) {
+                        if (Pattern.compile(regexCommands).matcher(command).find()) {
                             String toBeUwuified;
-                            return message.replaceAll(Pattern.quote(toBeUwuified = message.replaceAll(regexCommands, "")), Uwuifier.uwu(toBeUwuified));
+                            return prefix + command.replaceAll(Pattern.quote(toBeUwuified = command.replaceAll(regexCommands, "")), Uwuifier.uwu(toBeUwuified));
                         }
                     } catch (Exception e) {
                         LogManager.getLogger("Uwuifer").error("Error while trying to compile regex command: " + regexCommands);
@@ -36,4 +35,5 @@ public class LocalPlayerMixin {
         if (message.startsWith("/")) return message; // ignore commands
         return config.uwuifyOutgoing ? Uwuifier.uwu(message) : message;
     }
+    #endif
 }

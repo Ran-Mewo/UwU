@@ -39,7 +39,7 @@ public class UwUConfig implements ConfigData {
         public boolean uwuifyCertainCommands = true;
 
         @ConfigEntry.Gui.Tooltip
-        public List<String> uwuifyCommands = List.of("(\\/msg [0-9a-zA-Z_]{1,16})", "/me", "/say");
+        public List<String> uwuifyCommands = List.of("(msg [0-9a-zA-Z_]{1,16})", "me", "say");
     }
 
     public static void init() {
