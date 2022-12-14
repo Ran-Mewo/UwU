@@ -1,19 +1,25 @@
 package io.github.ran.uwu.client.mixins.chat;
 
+#if POST_CURRENT_MC_1_19_3
 import io.github.ran.uwu.client.Uwuifier;
 import io.github.ran.uwu.client.config.UwUConfig;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.chat.ChatListener;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.PlayerChatMessage;
 import net.minecraft.network.chat.SignedMessageBody;
-import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import net.minecraft.client.multiplayer.chat.ChatListener;
+#endif
+import net.minecraft.client.Minecraft;
+import org.spongepowered.asm.mixin.Mixin;
 
+#if POST_CURRENT_MC_1_19_3
 @Mixin(ChatListener.class)
+#else
+@Mixin(Minecraft.class)
+#endif
 public class ChatListenerMixin {
     #if POST_CURRENT_MC_1_19_3
     @ModifyVariable(method = "handlePlayerChatMessage", at = @At("HEAD"), ordinal = 0, argsOnly = true)
