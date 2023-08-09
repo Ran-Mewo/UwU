@@ -93,14 +93,3 @@ jobs:
         with:
           name: Artifacts
           path: Merged/
-
-  capture-artifacts:
-    needs: [build-1_19_3, build-1_19_2, build-1_18_2, build-1_16_5]
-    runs-on: ubuntu-20.04
-    steps:
-      - name: capture build artifacts
-        if: ${{ github.os == 'Linux' }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: Artifacts
-          path: Merged/
