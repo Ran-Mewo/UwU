@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-#if PRE_MC_1_19_3
+#if PRE_MC_1_19_2
 import net.minecraft.network.chat.TextComponent;
 #endif
 
@@ -26,7 +26,7 @@ public class ObjectiveMixin {
 
     @Unique
     private Component uwufiedText(Component text) {
-        #if PRE_MC_1_19_3
+        #if PRE_MC_1_19_2
         return new TextComponent(Uwuifier.uwuWithoutCuteFace(text.getString())).setStyle(text.getStyle());
         #else
         return Component.literal(Uwuifier.uwuWithoutCuteFace(text.getString())).setStyle(text.getStyle());

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.client.ConfigGuiHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-#elif PRE_MC_1_19_3
+#elif PRE_MC_1_19_2
 import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.client.ClientRegistry;
 #else
@@ -26,7 +26,7 @@ public class UwUModForge {
         UwUMod.init();
         #if PRE_MC_1_18_2
         ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY, () -> (mc, screen) -> AutoConfig.getConfigScreen(UwUConfig.class, screen).get());
-        #elif PRE_MC_1_19_3
+        #elif PRE_MC_1_19_2
         ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class, () -> new ConfigGuiHandler.ConfigGuiFactory((BiFunction<Minecraft, Screen, Screen>) (minecraft, screen) -> AutoConfig.getConfigScreen(UwUConfig.class, screen).get()));
         #else
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((BiFunction<Minecraft, Screen, Screen>) (minecraft, screen) -> AutoConfig.getConfigScreen(UwUConfig.class, screen).get()));

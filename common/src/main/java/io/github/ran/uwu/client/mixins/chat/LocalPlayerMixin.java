@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 @Mixin(LocalPlayer.class)
 public class LocalPlayerMixin {
-    #if PRE_MC_1_19_3
+    #if PRE_MC_1_19_2
     @ModifyVariable(method = "chat", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private String onSendChatMessage(String message) {
         UwUConfig config = UwUConfig.getInstance();
