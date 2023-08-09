@@ -19,7 +19,6 @@ jobs:
       - name: build 1.19.3
         run: ./gradlew assemble -PmcVer="1.19.3"
       - name: capture build artifacts
-        if: ${{ github.os == 'Linux' }}
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
@@ -42,7 +41,6 @@ jobs:
       - name: build 1.19.2
         run: ./gradlew assemble -PmcVer="1.19.2"
       - name: capture build artifacts
-        if: ${{ github.os == 'Linux' }}
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
@@ -65,7 +63,6 @@ jobs:
       - name: build 1.18.2
         run: ./gradlew assemble -PmcVer="1.18.2"
       - name: capture build artifacts
-        if: ${{ github.os == 'Linux' }}
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
@@ -88,7 +85,6 @@ jobs:
       - name: build 1.16.5
         run: ./gradlew assemble -PmcVer="1.16.5"
       - name: capture build artifacts
-        if: ${{ github.os == 'Linux' }}
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
