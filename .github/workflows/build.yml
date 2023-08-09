@@ -73,7 +73,6 @@ jobs:
   capture-artifacts:
     needs: [build-1.19.3, build-1.19.2, build-1.18.2, build-1.16.5]
     runs-on: ubuntu-20.04
-    if: ${{ runner.os == 'Linux' }}
     steps:
       - name: capture build artifacts
         uses: actions/upload-artifact@v2
